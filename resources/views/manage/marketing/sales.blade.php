@@ -12,13 +12,13 @@
     <a class="current" href="{{ route('manage.marketing.sales', ['account' => $sub_domain]) }}">売上データ</a>
   </li>
   <li class="nav-sub-item">
-    <a href="{{ route('manage.marketing.customer', ['account' => $sub_domain]) }}">顧客データ</a>
+    <a href="{{ route('manage.marketing.customer.index', ['account' => $sub_domain]) }}">顧客データ</a>
   </li>
   <li class="nav-sub-item">
-    <a href="#">クーポン</a>
+    <a href="{{ route('manage.marketing.coupon.index', ['account' => $sub_domain]) }}">クーポン</a>
   </li>
   <li class="nav-sub-item">
-    <a href="#">コミュニケーション</a>
+    <a href="{{ route('manage.marketing.communication.index', ['account' => $sub_domain]) }}">コミュニケーション</a>
   </li>
 </ul>
 @endsection

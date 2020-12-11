@@ -1,6 +1,6 @@
-$(function () {
+$(function() {
   // クーポンの種類
-  $('[name="coupon_genre"]').on("change", function () {
+  $('[name="coupon_genre"]').on("change", function() {
     if ($(this).val() == "discount") {
       $(".js-coupongenre-symbol").text("￥");
       $(".js-coupongenre-text").text("引き");
@@ -12,7 +12,7 @@ $(function () {
 
   // クーポン選択
   // 有効
-  $(".input-toggle-switch--hideshow").on("change", function () {
+  $(".input-toggle-switch--hideshow").on("change", function() {
     let toggle_selector = $(this).attr("data-toggle");
     if ($(this).prop("checked") == true) {
       $(toggle_selector).fadeIn();
@@ -21,11 +21,14 @@ $(function () {
     }
   });
   // 選択
-  $("#coupon_select_item").on("change", function () {
+  $("#coupon_select_item").on("change", function() {
     if ($(this).val() != null && $(this).val() != "") {
       $("#coupon_select_code").fadeIn();
       $("#coupon_select_code .btn-clip-board span").text($(this).val());
-      $("#coupon_select_code .btn-clip-board span").attr("data-clip", $(this).val());
+      $("#coupon_select_code .btn-clip-board span").attr(
+        "data-clip",
+        $(this).val()
+      );
     } else {
       $("#coupon_select_code").fadeOut();
       $("#coupon_select_code .btn-clip-board span").text("");
@@ -34,12 +37,12 @@ $(function () {
   });
 
   // クーポンコードの自動生成<TODO:バックエンドで制御>
-  $("#auto_coupon_code").on("click", function () {
-    $("#code_code").val(get_unique_str(10));
+  $("#auto_coupon_code").on("click", function() {
+    $("#coupon_code").val(get_unique_str(10));
   });
 
   // メール送信予約
-  $("#send_reserve_flag").on("change", function () {
+  $("#send_reserve_flag").on("change", function() {
     if ($(this).prop("checked") == true) {
       $("#action_name").text("保存");
     } else {

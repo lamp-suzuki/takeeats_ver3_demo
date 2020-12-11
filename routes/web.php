@@ -94,8 +94,30 @@ Route::domain('{account}.'.config('app.domain'))->group(function ($account) {
             // マーケティング
             Route::prefix('marketing')->namespace('Marketing')->name('marketing.')->group(function () {
                 Route::get('/sales', 'MarketingController@sales')->name('sales'); // 売上データ
-                Route::get('/customer', 'MarketingController@customer')->name('customer'); // 顧客データ
-                Route::get('/customer/{orderid}', 'MarketingController@customer_detail')->name('customer.detail'); // 顧客詳細
+
+                // 顧客データ
+                Route::prefix('customer')->name('customer.')->group(function () {
+                    Route::any('/', 'MarketingController@customer')->name('index');
+                    Route::get('/{orderid}', 'MarketingController@customer_detail')->name('detail');
+                    Route::get('/download', 'MarketingController@customer_download')->name('download');
+
+                    Route::post('/group/add', 'MarketingController@group_add')->name('group.add');
+                    Route::get('/group/delete/{id}', 'MarketingController@group_delete')->name('group.delete');
+                });
+
+                // クーポン
+                Route::prefix('coupon')->name('coupon.')->group(function () {
+                    Route::get('/', 'CouponController@index')->name('index');
+                    Route::get('/add', 'CouponController@add')->name('add');
+                    Route::post('/confirm', 'CouponController@confirm')->name('confirm');
+                });
+
+                // コミュケーション
+                Route::prefix('communication')->name('communication.')->group(function () {
+                    Route::get('/', 'CommunicationController@index')->name('index');
+                    Route::get('/add', 'CommunicationController@add')->name('add');
+                    Route::post('/confirm', 'CommunicationController@confirm')->name('confirm');
+                });
             });
 
             // 分析

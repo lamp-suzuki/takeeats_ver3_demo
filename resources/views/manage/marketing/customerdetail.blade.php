@@ -12,13 +12,13 @@
     <a href="{{ route('manage.marketing.sales', ['account' => $sub_domain]) }}">売上データ</a>
   </li>
   <li class="nav-sub-item">
-    <a class="current" href="{{ route('manage.marketing.customer', ['account' => $sub_domain]) }}">顧客データ</a>
+    <a class="current" href="{{ route('manage.marketing.customer.index', ['account' => $sub_domain]) }}">顧客データ</a>
   </li>
   <li class="nav-sub-item">
-    <a href="#">クーポン</a>
+    <a href="{{ route('manage.marketing.coupon.index', ['account' => $sub_domain]) }}">クーポン</a>
   </li>
   <li class="nav-sub-item">
-    <a href="#">コミュニケーション</a>
+    <a href="{{ route('manage.marketing.communication.index', ['account' => $sub_domain]) }}">コミュニケーション</a>
   </li>
 </ul>
 @endsection
@@ -28,64 +28,74 @@
   <div class="container">
     <div class="d-flex justify-content-lg-between align-items-center">
       <h2>顧客データ</h2>
-      <a href="#" class="btn btn-primary btn-icon ml-auto">
-        <i data-feather="download"></i>
-        <span class="ml-1">CSVダウンロード</span>
-      </a>
     </div>
   </div>
 </div>
 {{-- .page-head --}}
 <div class="page-main">
   <div class="container">
+    <div class="mb-4">
+      <a href="{{ route('manage.marketing.customer.index', ['account' => $sub_domain]) }}" class="btn btn-info rounded-pill">
+        <i data-feather="arrow-left"></i>
+        <span class="ml-1">一覧に戻る</span>
+      </a>
+    </div>
+    {{-- prevbtn --}}
     <div class="row">
       <div class="col-lg-3 mb-lg-0 mb-4">
         <div class="p-3 bg-white rounded-lg">
+          @if($users !== null)
           <p>
             <i class="text-primary" data-feather="award"></i>
             <span>会員</span>
           </p>
+          @endif
           <div class="my-3 text-center">
-            <img src="./dist/images/icon_user.png" alt="会員"
-              srcset="./dist/images/icon_user.png 1x, ./dist/images/icon_user@2x.png 2x" />
+            <img src="{{ asset('images/icon_user.png') }}" alt="会員"
+              srcset="{{ asset('images/icon_user.png') }} 1x, {{ asset('images/icon_user@2x.png') }} 2x" />
           </div>
           <p class="profile-name text-center">
-            <span class="d-block small">ヤマダ タロウ</span>
-            <span class="d-block h3">山田 太郎</span>
+            <span class="d-block small">{{ $orders[0]->furigana }}</span>
+            <span class="d-block h3">{{ $orders[0]->name }}</span>
           </p>
           <hr />
           <p class="small">
             <span class="d-block text-secondary">メールアドレス</span>
-            <span class="d-block">info@exapmle.com</span>
+            <span class="d-block">{{ $orders[0]->email }}</span>
           </p>
           <p class="small">
             <span class="d-block text-secondary">電話番号</span>
-            <span class="d-block">000-000-0000</span>
+            <span class="d-block">{{ $orders[0]->tel }}</span>
           </p>
+          @if($orders[0]->zipcode != null && $orders[0]->zipcode != '')
           <p class="small mb-0">
             <span class="d-block text-secondary">住所</span>
             <span class="d-block">
-              〒604-0024
+              〒{{ $orders[0]->zipcode }}
               <br />
-              京都府京都市中京区下妙覚寺町195 KMGビル4F
+              {{ $orders[0]->pref }}{{ $orders[0]->address1 }}{{ $orders[0]->address2 }}
             </span>
           </p>
+          @endif
         </div>
       </div>
-      <!-- .col -->
+      {{-- .col --}}
       <div class="col-lg-9">
         <div class="p-3 bg-white rounded-lg">
           <ul class="nav nav-tabs bg-white" role="tablist">
             <li class="nav-item" role="presentation">
               <a class="nav-link bg-white active" id="com-order" data-toggle="tab" href="#tabs-order" role="tab"
-                aria-controls="order" aria-selected="true">注文履歴(5)</a>
+                aria-controls="order" aria-selected="true">注文履歴({{ number_format(count($orders)) }})</a>
             </li>
+            @if($users !== null)
             <li class="nav-item" role="presentation">
               <a class="nav-link bg-white" id="com-point" data-toggle="tab" href="#tabs-point" role="tab"
                 aria-controls="point" aria-selected="false">ポイント履歴(5)</a>
             </li>
+            @endif
           </ul>
-          <!-- .nav-tabs -->
+          {{-- .nav-tabs --}}
+
           <div class="tab-content">
             <div class="table-wrap table-responsive tab-pane fade show active" id="tabs-order" role="tabpanel">
               <table class="table table--align-middle">
@@ -98,49 +108,23 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach ($orders as $order)
                   <tr>
-                    <td class="pc-only">2020/11/11 10:32</td>
+                    <td class="pc-only">{{ date('Y/m/d H:i:s', strtotime($order->created_at)) }}</td>
                     <td class="pc-only">
-                      <span class="py-1 px-3 bg-info">テイクアウト</span>
+                      <span class="py-1 px-3 bg-info">{{ $order->service }}</span>
                     </td>
-                    <td>2点 合計 ¥2,940</td>
+                    <td>2点 合計 ¥{{ number_format($order->total_amount) }}</td>
                     <td>
                       <a href="#" class="btn btn-sm btn-outline-secondary m-0">注文詳細</a>
                     </td>
                   </tr>
-                  <tr>
-                    <td class="pc-only">2020/11/11 10:32</td>
-                    <td class="pc-only">
-                      <span class="py-1 px-3 bg-info">テイクアウト</span>
-                    </td>
-                    <td>2点 合計 ¥2,940</td>
-                    <td>
-                      <a href="#" class="btn btn-sm btn-outline-secondary m-0">注文詳細</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="pc-only">2020/11/11 10:32</td>
-                    <td class="pc-only">
-                      <span class="py-1 px-3 bg-info">テイクアウト</span>
-                    </td>
-                    <td>2点 合計 ¥2,940</td>
-                    <td>
-                      <a href="#" class="btn btn-sm btn-outline-secondary m-0">注文詳細</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="pc-only">2020/11/11 10:32</td>
-                    <td class="pc-only">
-                      <span class="py-1 px-3 bg-info">テイクアウト</span>
-                    </td>
-                    <td>2点 合計 ¥2,940</td>
-                    <td>
-                      <a href="#" class="btn btn-sm btn-outline-secondary m-0">注文詳細</a>
-                    </td>
-                  </tr>
+                  @endforeach
                 </tbody>
               </table>
             </div>
+
+            @if($users !== null)
             <div class="table-wrap table-responsive tab-pane fade" id="tabs-point" role="tabpanel">
               <table class="table table--align-middle">
                 <thead>
@@ -175,15 +159,16 @@
                 </tbody>
               </table>
             </div>
+            @endif
           </div>
-          <!-- .tab-content -->
+          {{-- .tab-content --}}
         </div>
       </div>
-      <!-- .col -->
+      {{-- .col --}}
     </div>
-    <!-- .row -->
+    {{-- .row --}}
   </div>
-  <!-- .container -->
+  {{-- .container --}}
 </div>
-<!-- .page-main -->
+{{-- .page-main --}}
 @endsection
