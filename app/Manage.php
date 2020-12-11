@@ -11,6 +11,13 @@ class Manage extends Authenticatable
     use Notifiable;
 
     /**
+     * モデルと関連しているテーブル
+     *
+     * @var string
+     */
+    protected $table = 'manages';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
