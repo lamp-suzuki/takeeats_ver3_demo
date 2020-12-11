@@ -25,56 +25,57 @@
       {{-- .logo --}}
       <ul class="nav-main-list">
         <li class="nav-main-item">
-          <a href="#" class="current">
+          <a href="{{ route('manage.home', ['account' => $sub_domain]) }}"
+            class="{{ (request()->segment(2) == 'home') ? 'current' : '' }}">
             <img src="{{ asset('images/icon_home.png') }}" alt=""
               srcset="{{ asset('images/icon_home.png') }} 1x, {{ asset('images/icon_home@2x.png') }} 2x" />
             <span>ホーム</span>
           </a>
         </li>
         <li class="nav-main-item">
-          <a href="#">
+          <a href="#" class="{{ (request()->segment(2) == 'oreder') ? 'current' : '' }}">
             <img src="{{ asset('images/icon_list.png') }}" alt=""
               srcset="{{ asset('images/icon_list.png') }} 1x, {{ asset('images/icon_list@2x.png') }} 2x" />
             <span>注文履歴</span>
           </a>
         </li>
         <li class="nav-main-item">
-          <a href="#">
+          <a href="#" class="{{ (request()->segment(2) == 'product') ? 'current' : '' }}">
             <img src="{{ asset('images/icon_dish.png') }}" alt=""
               srcset="{{ asset('images/icon_dish.png') }} 1x, {{ asset('images/icon_dish@2x.png') }} 2x" />
             <span>商品管理</span>
           </a>
         </li>
         <li class="nav-main-item">
-          <a href="#">
+          <a href="#" class="{{ (request()->segment(2) == 'post') ? 'current' : '' }}">
             <img src="{{ asset('images/icon_mail.png') }}" alt=""
               srcset="{{ asset('images/icon_mail.png') }} 1x, {{ asset('images/icon_mail@2x.png') }} 2x" />
             <span>お知らせ</span>
           </a>
         </li>
         <li class="nav-main-item">
-          <a href="#">
+          <a href="#" class="{{ (request()->segment(2) == 'marketing') ? 'current' : '' }}">
             <img src="{{ asset('images/icon_graf.png') }}" alt=""
               srcset="{{ asset('images/icon_graf.png') }} 1x, {{ asset('images/icon_graf@2x.png') }} 2x" />
             <span>マーケティング</span>
           </a>
         </li>
         <li class="nav-main-item">
-          <a href="#">
+          <a href="#" class="{{ (request()->segment(2) == 'customize') ? 'current' : '' }}">
             <img src="{{ asset('images/icon_customize.png') }}" alt=""
               srcset="{{ asset('images/icon_customize.png') }} 1x, {{ asset('images/icon_customize@2x.png') }} 2x" />
             <span>カスタマイズ</span>
           </a>
         </li>
         <li class="nav-main-item">
-          <a href="#">
+          <a href="#" class="{{ (request()->segment(2) == 'setting') ? 'current' : '' }}">
             <img src="{{ asset('images/icon_setting.png') }}" alt=""
               srcset="{{ asset('images/icon_setting.png') }} 1x, {{ asset('images/icon_setting@2x.png') }} 2x" />
             <span>設定</span>
           </a>
         </li>
         <li class="nav-main-item">
-          <a href="#">
+          <a href="#" class="{{ (request()->segment(2) == 'support') ? 'current' : '' }}">
             <img src="{{ asset('images/icon_support.png') }}" alt=""
               srcset="{{ asset('images/icon_support.png') }} 1x, {{ asset('images/icon_support@2x.png') }} 2x" />
             <span>サポート</span>
