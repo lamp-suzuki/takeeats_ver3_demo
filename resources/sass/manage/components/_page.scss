@@ -1,0 +1,26 @@
+.page {
+  &-head {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: $white;
+    padding: 1rem 0 1rem calc(100px + 240px);
+    min-height: 69px;
+    @include media-breakpoint-down(md) {
+      position: static;
+      top: auto;
+      left: auto;
+      width: 100%;
+      padding: 0.5rem 0;
+      min-height: 55px;
+      background-color: rgba($white, 0.5);
+    }
+  }
+  &-main {
+    padding: $font-size-default * 2 0;
+  }
+}

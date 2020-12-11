@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+@import "./variables";
+
+@import "~bootstrap/scss/bootstrap";
+
+@import "~chart.js/dist/Chart.css";
+
+@import "~air-datepicker/src/sass/cell";
+@import "~air-datepicker/src/sass/navigation";
+@import "~air-datepicker/src/sass/datepicker";
+
+@import "./component";
+@import "./layouts";

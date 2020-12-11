@@ -1,0 +1,50 @@
+.btn {
+  padding-left: 2em;
+  padding-right: 2em;
+  border-radius: 5px;
+  i,
+  span {
+    display: inline-flex;
+    align-self: center;
+  }
+
+  &-link {
+    color: $body-color;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &-icon {
+    @include media-breakpoint-down(md) {
+      line-height: 1;
+      padding: 0.5em 1em;
+      span {
+        display: none;
+      }
+    }
+  }
+
+  &.rounded-circle {
+    width: auto;
+    max-width: 100%;
+    line-height: 1;
+  }
+
+  &-clip-board {
+    display: inline-block;
+    border: 1px solid $gray-300;
+    border-radius: 5px;
+    background-color: transparent;
+    padding: 0.5em 0.5em 0.5em 1em;
+    line-height: 1;
+    color: $gray-700;
+    span {
+      margin-right: 0.5em;
+    }
+    &:active,
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+  }
+}

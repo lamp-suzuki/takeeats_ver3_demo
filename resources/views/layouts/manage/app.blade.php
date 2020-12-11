@@ -5,121 +5,118 @@
   <meta charset="utf-8">
   <meta name="robots" content="noindex">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>管理画面 | TakeEats</title>
-  <!-- Scripts -->
-  <script src="{{ asset('js/manage/app.js') }}" defer></script>
-  <!-- Fonts -->
+
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
-  <!-- Styles -->
   <link href="{{ asset('css/manage/app.css') }}" rel="stylesheet">
+  <script src="{{ asset('js/manage/app.js') }}" defer></script>
 </head>
 
 <body>
-  <nav id="navbar" class="navbar bg-primary flex-lg-nowrap p-0">
-    <a class="navbar-brand col-lg-2 col-6 mr-lg-3 mr-0 px-3" href="{{ route('manage.home', ['account' => $sub_domain]) }}">
-      <img src="{{ asset('images/logo.png') }}" alt="TakeEats"
-        srcset="{{ asset('images/logo.png') }} 1x, {{ asset('images/logo@2x.png') }} 2x" />
-    </a>
-    <span class="mr-auto text-white d-lg-block d-none">こんにちは、{{ Auth::user()->name }}様</span>
-    <a class="btn btn-light rounded-pill mr-5 px-4 d-lg-block d-none" href="{{ url('/') }}" target="_blank">
-      <span class="d-inline-block align-middle">サイトを確認する</span>
-      <i class="d-inline-block align-middle" data-feather="external-link"></i>
-    </a>
-  </nav>
-  <div class="navbar-toggle-btn">
-    <i data-feather="menu"></i>
-  </div>
-  <!-- .navbar -->
-  <div class="container-fluid">
-    <div class="row">
-      <nav id="sidebarMenu" class="col-lg-2 d-lg-block px-0 bg-white sidebar">
-        <div class="pt-lg-5">
-          <div class="head">
-            <p>
-              こんにちは、
-              <span class="d-block">{{ Auth::user()->name }}様</span>
-            </p>
-            <form action="{{ route('manage.logout', ['account' => $sub_domain]) }}" method="post">
-              @csrf
-              <button class="btn btn-link text-body font-weight-normal p-0 border-0">ログアウト</button>
-            </form>
-          </div>
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('manage.home', ['account' => $sub_domain]) }}">
-                <span class="feather-icon"><i data-feather="home"></i></span>
-                <span>トップ</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('manage.order.index', ['account' => $sub_domain]) }}">
-                <span class="feather-icon"><i data-feather="clipboard"></i></span>
-                <span>注文管理</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('manage.product.index', ['account' => $sub_domain]) }}">
-                <span class="feather-icon"><i data-feather="book"></i></span>
-                <span>商品の追加・編集</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('manage.post.index', ['account' => $sub_domain]) }}">
-                <span class="feather-icon"><i data-feather="feather"></i></span>
-                <span>お知らせの更新</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('manage.data.order', ['account' => $sub_domain]) }}">
-                <span class="feather-icon"><i data-feather="bar-chart"></i></span>
-                <span>データ分析をみる</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('manage.shop.index', ['account' => $sub_domain]) }}">
-                <span class="feather-icon"><i data-feather="flag"></i></span>
-                <span>店舗の追加・編集</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('manage.setting.basic', ['account' => $sub_domain]) }}">
-                <span class="feather-icon"><i data-feather="settings"></i></span>
-                <span>設定</span>
-              </a>
-            </li>
-          </ul>
-          <div class="foot">
-            <a href="{{ route('manage.setting.transaction.index', ['account' => $sub_domain]) }}">
-              <i class="d-inline-block align-middle" data-feather="triangle"></i>
-              <span class="d-inline-block align-middle">運営者情報に関する設定</span>
-            </a>
-            <a href="{{ route('manage.manual', ['account' => $sub_domain]) }}">
-              <i class="d-inline-block align-middle" data-feather="triangle"></i>
-              <span class="d-inline-block align-middle">ご利用マニュアルのダウンロード</span>
-            </a>
-            <a href="{{ route('manage.consultation', ['account' => $sub_domain]) }}">
-              <i class="d-inline-block align-middle" data-feather="triangle"></i>
-              <span class="d-inline-block align-middle">無料ご相談会</span>
-            </a>
-          </div>
+  <header class="header-menu">
+    <nav class="nav-main">
+      <div class="logo">
+        <a href="{{ route('manage.home', ['account' => $sub_domain]) }}">
+          <img src="{{ asset('images/logo_head.png') }}" alt="TakeEats"
+            srcset="{{ asset('images/logo_head.png') }} 1x, {{ asset('images/logo_head@2x.png') }} 2x" />
+        </a>
+      </div>
+      {{-- .logo --}}
+      <ul class="nav-main-list">
+        <li class="nav-main-item">
+          <a href="#" class="current">
+            <img src="{{ asset('images/icon_home.png') }}" alt=""
+              srcset="{{ asset('images/icon_home.png') }} 1x, {{ asset('images/icon_home@2x.png') }} 2x" />
+            <span>ホーム</span>
+          </a>
+        </li>
+        <li class="nav-main-item">
+          <a href="#">
+            <img src="{{ asset('images/icon_list.png') }}" alt=""
+              srcset="{{ asset('images/icon_list.png') }} 1x, {{ asset('images/icon_list@2x.png') }} 2x" />
+            <span>注文履歴</span>
+          </a>
+        </li>
+        <li class="nav-main-item">
+          <a href="#">
+            <img src="{{ asset('images/icon_dish.png') }}" alt=""
+              srcset="{{ asset('images/icon_dish.png') }} 1x, {{ asset('images/icon_dish@2x.png') }} 2x" />
+            <span>商品管理</span>
+          </a>
+        </li>
+        <li class="nav-main-item">
+          <a href="#">
+            <img src="{{ asset('images/icon_mail.png') }}" alt=""
+              srcset="{{ asset('images/icon_mail.png') }} 1x, {{ asset('images/icon_mail@2x.png') }} 2x" />
+            <span>お知らせ</span>
+          </a>
+        </li>
+        <li class="nav-main-item">
+          <a href="#">
+            <img src="{{ asset('images/icon_graf.png') }}" alt=""
+              srcset="{{ asset('images/icon_graf.png') }} 1x, {{ asset('images/icon_graf@2x.png') }} 2x" />
+            <span>マーケティング</span>
+          </a>
+        </li>
+        <li class="nav-main-item">
+          <a href="#">
+            <img src="{{ asset('images/icon_customize.png') }}" alt=""
+              srcset="{{ asset('images/icon_customize.png') }} 1x, {{ asset('images/icon_customize@2x.png') }} 2x" />
+            <span>カスタマイズ</span>
+          </a>
+        </li>
+        <li class="nav-main-item">
+          <a href="#">
+            <img src="{{ asset('images/icon_setting.png') }}" alt=""
+              srcset="{{ asset('images/icon_setting.png') }} 1x, {{ asset('images/icon_setting@2x.png') }} 2x" />
+            <span>設定</span>
+          </a>
+        </li>
+        <li class="nav-main-item">
+          <a href="#">
+            <img src="{{ asset('images/icon_support.png') }}" alt=""
+              srcset="{{ asset('images/icon_support.png') }} 1x, {{ asset('images/icon_support@2x.png') }} 2x" />
+            <span>サポート</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    {{-- .nav-main --}}
+    <nav class="nav-sub">
+      @yield('pagemenu')
+    </nav>
+    {{-- .nav-sub --}}
+  </header>
+  {{-- /header --}}
+
+  <main class="main">
+    <nav class="spmenu">
+      <div class="container">
+        <div class="d-flex align-items-center">
+          <button type="button" class="btn js-nav-main-toggle">
+            <i data-feather="menu"></i>
+          </button>
+          <a class="d-block mx-auto" href="{{ route('manage.home', ['account' => $sub_domain]) }}">
+            <img src="{{ asset('images/logo.png') }}" alt=""
+              srcset="{{ asset('images/logo.png') }} 1x, {{ asset('images/logo@2x.png') }} 2x" />
+          </a>
+          <span></span>
         </div>
-      </nav>
-      <!-- #sidebarMenu -->
-      <main id="main" role="main" class="col-lg-10 ml-sm-auto px-lg-4 bg-light">
-        <div class="wrap">
-          @yield('content')
-        </div>
-        <!-- .wrap -->
-        <div class="socket">©2020 TakeEats</div>
-      </main>
-      <!-- #main -->
-    </div>
-    <!-- .row -->
-  </div>
-  <!-- .container-fluid -->
-  <div class="orverray"></div>
+      </div>
+    </nav>
+    {{-- .spmenu --}}
+    @yield('content')
+  </main>
+  {{-- .main --}}
+
+  <footer class="footer py-1 px-3">
+    <small class="d-block text-right">©2020 TakeEats</small>
+  </footer>
+  {{-- /footer --}}
+
+  <div class="overlay"></div>
+
 </body>
 
 </html>

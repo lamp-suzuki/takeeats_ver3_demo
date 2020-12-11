@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "axios": "^0.19",
-        "bootstrap": "^4.0.0",
+        "bootstrap": "^4.5.3",
         "cross-env": "^7.0",
         "jquery": "^3.2",
         "laravel-mix": "^5.0.1",
@@ -21,6 +21,9 @@
         "sass": "^1.20.1",
         "sass-loader": "^8.0.0",
         "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.10"
+        "vue-template-compiler": "^2.6.10",
+        "air-datepicker": "^2.2.3",
+        "chart.js": "^2.9.4",
+        "feather-icons": "^4.28.0"
     }
 }

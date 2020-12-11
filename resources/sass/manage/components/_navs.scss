@@ -1,0 +1,25 @@
+.nav {
+  // タブ切り替え
+  &-tabs {
+    margin-bottom: 2rem;
+    border-bottom: 0;
+    .nav-link {
+      border: 0;
+      padding: 0 2em 0.5em;
+      color: $body-color;
+      @include media-breakpoint-down(md) {
+        padding: 0 1em 0.5em;
+      }
+      &:hover,
+      &:focus {
+        border: 0;
+      }
+      &.active {
+        border: 0;
+        border-radius: 0;
+        font-weight: bold;
+        border-bottom: 2px solid $primary;
+      }
+    }
+  }
+}

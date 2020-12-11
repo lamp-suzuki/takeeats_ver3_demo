@@ -35,9 +35,9 @@ Route::domain('{account}.'.config('app.domain'))->group(function ($account) {
             // 受注管理
             Route::prefix('order')->namespace('Order')->name('order.')->group(function () {
                 // Route::any('/', 'IndexController@index')->name('index'); // 一覧
-            // Route::get('/detail/{id}', 'DetailController@index')->name('detail'); // 詳細
-            // Route::post('/detail/{id}/cancel', 'DetailController@cancel')->name('cancel'); // 詳細
-            // Route::post('/download', 'IndexController@download')->name('download'); // ダウンロード
+                // Route::get('/detail/{id}', 'DetailController@index')->name('detail'); // 詳細
+                // Route::post('/detail/{id}/cancel', 'DetailController@cancel')->name('cancel'); // 詳細
+                // Route::post('/download', 'IndexController@download')->name('download'); // ダウンロード
             });
 
             // 商品管理

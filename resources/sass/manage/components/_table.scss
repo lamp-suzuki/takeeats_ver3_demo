@@ -1,0 +1,44 @@
+.table {
+  th,
+  td {
+    font-weight: normal;
+    padding: 1rem;
+    @include media-breakpoint-down(md) {
+      padding: 1rem;
+    }
+  }
+
+  &--align-middle {
+    th,
+    td {
+      vertical-align: middle;
+    }
+  }
+}
+
+.table-wrap {
+  background-color: $white;
+
+  .table {
+    margin: 0;
+    thead {
+      th {
+        border-top: 0;
+        padding: 1.5rem 1rem;
+      }
+    }
+  }
+}
+
+.table-responsive {
+  .table {
+    th,
+    td {
+      white-space: nowrap;
+      @include media-breakpoint-down(md) {
+        word-break: break-all;
+        white-space: normal;
+      }
+    }
+  }
+}

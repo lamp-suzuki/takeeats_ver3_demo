@@ -1,0 +1,21 @@
+.badge {
+  font-weight: normal;
+  &-light {
+    color: $secondary;
+  }
+}
+
+.filter-badge {
+  button {
+    &.badge {
+      display: inline-block;
+      vertical-align: middle;
+      border: none;
+      font-size: 0.875rem;
+      margin-right: 0.5em;
+      margin-bottom: 0.5em;
+      padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+      background-color: rgba($white, 0.5);
+    }
+  }
+}

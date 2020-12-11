@@ -1,0 +1,12 @@
+.tooltip.show {
+  opacity: 1;
+}
+
+.tooltip-inner {
+  background-color: $body-color;
+}
+
+.bs-tooltip-top .arrow::before,
+.bs-tooltip-auto[x-placement^="top"] .arrow::before {
+  border-top-color: $body-color;
+}

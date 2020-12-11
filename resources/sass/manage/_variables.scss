@@ -1,0 +1,92 @@
+/* === Bootstrap === */
+// Typography
+$font-family-sans-serif: "Lato", "Noto Sans JP", sans-serif;
+$font-size-default: 16px;
+$font-size-base: 0.875rem;
+$line-height-base: 1.7;
+
+// Color system
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #ebebe8;
+$gray-300: #e0e0e0;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #7e7c7b;
+$gray-700: #4c4947;
+$gray-800: #3b3a39;
+$gray-900: #212529;
+$black: #000;
+
+$blue: #007bff;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #df2935;
+$orange: #dd644d;
+$yellow: #ffd046;
+$green: #03b5aa;
+$teal: #20c997;
+$cyan: #17a2b8;
+
+// Theme Color
+$primary: $orange;
+$secondary: $gray-600;
+$success: $green;
+$info: $gray-300;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-200;
+$dark: $gray-700;
+
+// Body
+$body-bg: #f4f3ef;
+$body-color: $gray-700;
+
+/* === Datepicker === */
+$datepickerDayCellSize: $font-size-base * 2;
+$datepickerWidth: 250px;
+$datepickerMinBodyHeight: 170px;
+$datepickerBorderRadius: 4px;
+$datepickerPadding: 4px;
+$datepickerZIndex: 100;
+
+$datepickerFontFamily: $font-family-sans-serif;
+$datepickerFontSize: $font-size-base;
+
+$datepickerYearsPerRow: 4;
+
+$datepickerTextColor: (
+  button: $primary,
+  otherMonth: $gray-400,
+  otherMonthInRange: #ccc,
+  disabled: #aeaeae,
+  currentDate: $primary,
+  common: $body-color,
+  dayNames: $primary,
+  navArrows: #9c9c9c,
+);
+
+$datepickerBG: (
+  selected: $primary,
+  selectedHover: darken($primary, 5),
+  inRange: rgba($primary, 0.1),
+  hover: $gray-200,
+);
+
+$datepickerBorderColor: (
+  nav: $gray-400,
+  inline: $gray-400,
+  default: $gray-400,
+);
+
+$datepickerNavigationHeight: $font-size-base * 2;
+$datepickerNavigationButtonsOffset: 2px;
+
+$datepickerPointerSize: 10px;
+$datepickerPointerOffset: 10px;
+
+// Transitions
+$datepickerTransitionSpeed: 0.3s;
+$datepickerTransitionEase: ease;
+$datepickerTransitionOffset: 8px;

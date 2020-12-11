@@ -1,0 +1,23 @@
+.alert {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  background-color: $white;
+  border: 0;
+  border-left: 5px solid $body-color;
+  border-radius: 0;
+  color: $body-color;
+  &-success {
+    border-color: $success;
+  }
+  &-danger {
+    border-color: $danger;
+  }
+  &-warning {
+    border-color: $warning;
+  }
+
+  .feather {
+    margin-top: 0;
+  }
+}

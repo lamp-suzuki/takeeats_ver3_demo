@@ -48,7 +48,7 @@
       z-index: 2;
     }
 
-    .form-signin input[type="text"] {
+    .form-signin input[type="email"] {
       margin-bottom: -1px;
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0;
@@ -76,12 +76,12 @@
       placeholder="メールアドレス" required autofocus />
     <label for="inputPassword" class="sr-only">パスワード</label>
     <input type="password" id="inputPassword" class="form-control" name="password" placeholder="パスワード" required />
-    <button class="btn btn-success btn-block text-white py-2" type="submit">ログイン</button>
-    {{-- <div class="form-check bg-transparent">
-      <input class="form-check-input" type="checkbox" name="remember" id="remember"
+    <button class="btn btn-primary btn-block text-white py-2" type="submit">ログイン</button>
+    <div class="custom-checkbox bg-transparent mt-3">
+      <input class="custom-control-input" type="checkbox" name="remember" id="remember"
         {{ old('remember') ? 'checked' : '' }}>
-    <label class="form-check-label" for="remember">ログイン状態を記憶する</label>
-    </div> --}}
+      <label class="custom-control-label" for="remember">ログイン状態を記憶する</label>
+    </div>
     <p class="mt-5 mb-3 text-muted">&copy; 2020 TakeEats</p>
   </form>
 </body>

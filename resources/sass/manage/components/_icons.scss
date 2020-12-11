@@ -1,0 +1,13 @@
+.feather {
+  &.feather-more-vertical {
+    cursor: pointer;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    color: $secondary;
+    &:hover,
+    &:focus {
+      opacity: 0.6;
+    }
+  }
+}

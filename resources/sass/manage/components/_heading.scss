@@ -1,0 +1,42 @@
+h2,
+.h2 {
+  position: relative;
+  font-size: $font-size-base * 1.2857;
+  font-weight: bold;
+  padding-left: 1em;
+  margin: 0;
+  @include media-breakpoint-down(md) {
+    font-size: $font-size-base * 1.15;
+    padding-left: 0;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    vertical-align: top;
+    width: 5px;
+    height: 100%;
+    border-radius: 3px;
+    background-color: $primary;
+    @include media-breakpoint-down(md) {
+      content: none;
+    }
+  }
+}
+h3,
+.h3 {
+  font-size: $font-size-base * 1.15;
+  font-weight: bold;
+  margin: 0;
+  @include media-breakpoint-down(md) {
+    font-size: $font-size-base * 1.05;
+  }
+}
+h4,
+.h4 {
+  font-size: $font-size-base * 1;
+  font-weight: bold;
+  margin: 0;
+}

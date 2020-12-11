@@ -1,0 +1,17 @@
+.status {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  border: 1px solid $gray-300;
+  background-color: $white;
+  white-space: nowrap;
+  @include media-breakpoint-down(md) {
+    padding: 0.5rem 1rem;
+  }
+
+  &-done {
+    background-color: $gray-300;
+  }
+}

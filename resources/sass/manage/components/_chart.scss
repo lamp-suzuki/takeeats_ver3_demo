@@ -1,0 +1,16 @@
+.chart {
+  &-wrap {
+    p {
+      margin: 0;
+      text-align: center;
+      color: $secondary;
+      line-height: 1;
+      margin-bottom: 1rem;
+      span {
+        color: $primary;
+        font-size: $font-size-base * 1.2857;
+        font-weight: bold;
+      }
+    }
+  }
+}

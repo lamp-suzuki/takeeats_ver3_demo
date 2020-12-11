@@ -1,0 +1,21 @@
+body {
+  font-feature-settings: "palt" 1;
+  letter-spacing: 0.06em;
+  word-break: break-all;
+}
+
+a {
+  transition: all 0.3s;
+  &:hover {
+    text-decoration: none;
+  }
+  &.text-body {
+    &:hover {
+      color: $primary !important;
+    }
+  }
+}
+
+.feather {
+  margin-top: -2px;
+}
