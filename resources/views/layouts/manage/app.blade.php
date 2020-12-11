@@ -54,7 +54,7 @@
           </a>
         </li>
         <li class="nav-main-item">
-          <a href="#" class="{{ (request()->segment(2) == 'marketing') ? 'current' : '' }}">
+          <a href="{{ route('manage.marketing.sales', ['account' => $sub_domain]) }}" class="{{ (request()->segment(2) == 'marketing') ? 'current' : '' }}">
             <img src="{{ asset('images/icon_graf.png') }}" alt=""
               srcset="{{ asset('images/icon_graf.png') }} 1x, {{ asset('images/icon_graf@2x.png') }} 2x" />
             <span>マーケティング</span>

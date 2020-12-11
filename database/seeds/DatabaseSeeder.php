@@ -14,6 +14,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             DefaultGenreSeeder::class,
             ManagesTableSeeder::class,
+            UsersTableSeeder::class,
+            ProductsTableSeeder::class,
+            OrdersTableSeeder::class,
         ]);
     }
 }

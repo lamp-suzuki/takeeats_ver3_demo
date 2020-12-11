@@ -65,13 +65,13 @@ class DetailController extends Controller
 
         // クレカ返金処理
         if ($orders->charge_id != null && $orders->charge_id != '') {
-            try {
-                \Payjp\Payjp::setApiKey(config('app.payjpkey'));
-                $ch = \Payjp\Charge::retrieve($orders->charge_id);
-                $ch->refund();
-            } catch (\Throwable $th) {
-                session()->flash('error', 'クレジットカード決済の返金に失敗しました。');
-            }
+            // try {
+            //     \Payjp\Payjp::setApiKey(config('app.payjpkey'));
+            //     $ch = \Payjp\Charge::retrieve($orders->charge_id);
+            //     $ch->refund();
+            // } catch (\Throwable $th) {
+            //     session()->flash('error', 'クレジットカード決済の返金に失敗しました。');
+            // }
         }
 
         return redirect()->route('manage.order.detail', ['account' => $account, 'id' => $id]);

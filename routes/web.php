@@ -91,6 +91,13 @@ Route::domain('{account}.'.config('app.domain'))->group(function ($account) {
                 // Route::post('/guide/update', 'GuideController@update')->name('guide.update');
             });
 
+            // マーケティング
+            Route::prefix('marketing')->namespace('Marketing')->name('marketing.')->group(function () {
+                Route::get('/sales', 'MarketingController@sales')->name('sales'); // 売上データ
+                Route::get('/customer', 'MarketingController@customer')->name('customer'); // 顧客データ
+                Route::get('/customer/{orderid}', 'MarketingController@customer_detail')->name('customer.detail'); // 顧客詳細
+            });
+
             // 分析
             // Route::prefix('data')->namespace('Data')->name('data.')->group(function () {
             //     Route::get('/order', 'DataController@order')->name('order');
