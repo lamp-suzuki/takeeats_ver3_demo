@@ -14,8 +14,16 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
+        $url = $_SERVER['HTTP_HOST'];
+        $domain_array = explode('.', $url);
+        $sub_domain = $domain_array[0];
+
         if (! $request->expectsJson()) {
-            return route('login');
+            if ($request->is('manage/*')) {
+                return route('manage.login', ['account' => $sub_domain]);
+            } else {
+                return route('login', ['account' => $sub_domain]);
+            }
         }
     }
 }
